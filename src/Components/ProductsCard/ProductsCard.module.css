@@ -1,0 +1,19 @@
+.card {
+  width: 19rem;
+  margin: auto;
+  box-shadow: none;
+  border: none;
+}
+.title {
+  text-align: center;
+}
+
+.footer {
+  display: grid;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.h4 {
+  margin: 1%;
+}

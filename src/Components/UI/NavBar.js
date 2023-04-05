@@ -30,7 +30,7 @@ const NavBar = (props) => {
           </Nav.Item>
         </Nav>
         <Nav>
-          <CartButton />
+          <CartButton onClick={props.cartButtonClick}/>
         </Nav>
       </Container>
     </Navbar>

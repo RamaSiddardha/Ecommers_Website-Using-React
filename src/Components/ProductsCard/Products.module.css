@@ -1,0 +1,7 @@
+.span {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 3rem;
+}

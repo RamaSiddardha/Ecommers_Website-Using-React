@@ -4,7 +4,7 @@ import NavBar from "../UI/NavBar";
 const Header = (props) => {
   return (
     <>
-      <NavBar />
+      <NavBar show={props.show} cartButtonClick={props.cartButtonClick}/>
       <BrandCard/>
     </>
   );
