@@ -1,7 +1,20 @@
-import { Button, Card, CardGroup } from "react-bootstrap";
+import { Button, Card} from "react-bootstrap";
 import classes from "./ProductsCard.module.css";
+import { useContext } from "react";
+import CartContext from "../../Contexts/CartContext";
 
 const ProductsCard = (props) => {
+
+  const cartCtx = useContext(CartContext)
+
+  const addToCart =() =>{
+    cartCtx.addItem({
+      id : props.id,
+      name : props.name,
+      link : props.link,
+      price : props.price
+    })
+  }
   return (
     <>
       <Card className="border-0">
@@ -12,13 +25,9 @@ const ProductsCard = (props) => {
           <Card.Img src={props.link} />
           <span className={classes.footer}>
             <h4>${props.price}</h4>
-            <Button>Add to Cart</Button>
+            <Button onClick={addToCart}>Add to Cart</Button>
           </span>
         </Card.Body>
-        {/* <Card.Footer className={classes.footer}>
-            <h6>${props.price}</h6>
-            <Button>Add to Cart</Button>
-          </Card.Footer> */}
       </Card>
     </>
   );

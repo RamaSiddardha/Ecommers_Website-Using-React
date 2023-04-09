@@ -1,8 +1,15 @@
 import { Badge, Button } from "react-bootstrap";
 import CartIcon from "./CartIcon";
 import classes from "./CartButton.module.css";
+import { useContext } from "react";
+import CartContext from "../../Contexts/CartContext";
 
 const CartButton = (props) => {
+
+  const cartCtx = useContext(CartContext)
+
+  const noOfCartItems = cartCtx.items.length
+
   return (
     <>
       <Button
@@ -16,7 +23,7 @@ const CartButton = (props) => {
           <CartIcon />
         </span>
         <Badge className="ms-1" bg="secondary">
-          0
+        {noOfCartItems}
         </Badge>
       </Button>
     </>

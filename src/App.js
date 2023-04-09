@@ -1,9 +1,9 @@
-import { Row } from "react-bootstrap";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Products from "./Components/ProductsCard/Products";
 import CartModal from "./Components/CartButton/CartModal";
 import { useState } from "react";
+import Cartprovider from "./Contexts/CartContextProvider";
 
 function App() {
 
@@ -14,13 +14,13 @@ setShow(!show)
  }
 
   return (
-    <>
+    <Cartprovider>
       <CartModal show={show} onHide={cartModelHandler}/>
       <Header  cartButtonClick={cartModelHandler}/>
-      <Row xs={1} md={2} className="g-4">
+      
       <Products/>
-      </Row>
-    </>
+ 
+    </Cartprovider>
   );
 }
 
