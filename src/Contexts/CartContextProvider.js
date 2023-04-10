@@ -26,7 +26,7 @@ const cartReducer = (state, action) => {
       };
     }
     if (existingItem) {
-      alert('Item Already Exist')
+      alert('Item Already Exists')
       return {
         items: state.items,
         totalAmount: state.totalAmount,

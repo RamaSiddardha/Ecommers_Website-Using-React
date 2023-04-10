@@ -1,24 +1,29 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
-import Products from "./Components/ProductsCard/Products";
-import CartModal from "./Components/CartButton/CartModal";
+import Products from "./Components/Store/Products";
+import CartModal from "./Components/Cart/CartButton/CartModal";
 import { useState } from "react";
 import Cartprovider from "./Contexts/CartContextProvider";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import RootLayout from "./Components/RootLayout/RootLayout";
+import About from "./Components/About/About";
+
+
+const Router = createBrowserRouter([
+  {
+    path : '/', element: <RootLayout/> , children : [
+      {path :'/Store' , element : <Products/>},
+      {path : '/About' , element : <About/>}
+    ]
+  }
+])
 
 function App() {
 
- const [show,setShow] = useState(false)
-
- const cartModelHandler =()=>{
-setShow(!show)
- }
 
   return (
     <Cartprovider>
-      <CartModal show={show} onHide={cartModelHandler}/>
-      <Header  cartButtonClick={cartModelHandler}/>
-      
-      <Products/>
+      <RouterProvider router={Router}/>
  
     </Cartprovider>
   );

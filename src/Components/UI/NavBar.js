@@ -1,5 +1,6 @@
 import {Container, Nav, Navbar } from "react-bootstrap";
-import CartButton from "../CartButton/CartButton";
+import CartButton from "../Cart/CartButton/CartButton";
+import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
   return (
@@ -14,18 +15,18 @@ const NavBar = (props) => {
         <Navbar.Brand />
         <Nav className="ms-5">
           <Nav.Item>
-            <Nav.Link className="me-5 ms-2" active style={{ fontColor: "red" }}>
-              Home
+            <Nav.Link className="me-5 ms-2">
+            <Link style={{textDecoration : 'none', color : 'white'}} to='/Home'>Home</Link> 
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link className="me-5 ms-2" style={{ fontColor: "#E1D9D1" }}>
-              Store
+         <Nav.Link className="me-5 ms-2" >
+         <Link style={{textDecoration : 'none', color : 'white'}} to='/Store'> Store</Link> 
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link className="me-5 ms-2" style={{ fontColor: "#E1D9D1" }}>
-              Contact
+            <Nav.Link className="me-5 ms-2">
+            <Link style={{textDecoration : 'none', color : 'white'}} to='/About'>About</Link> 
             </Nav.Link>
           </Nav.Item>
         </Nav>

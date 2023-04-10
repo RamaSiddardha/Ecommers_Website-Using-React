@@ -2,7 +2,7 @@ import { Badge, Button } from "react-bootstrap";
 import CartIcon from "./CartIcon";
 import classes from "./CartButton.module.css";
 import { useContext } from "react";
-import CartContext from "../../Contexts/CartContext";
+import CartContext from "../../../Contexts/CartContext";
 
 const CartButton = (props) => {
 
