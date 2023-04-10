@@ -1,6 +1,6 @@
 import {Container, Nav, Navbar } from "react-bootstrap";
 import CartButton from "../Cart/CartButton/CartButton";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = (props) => {
   return (
@@ -16,17 +16,17 @@ const NavBar = (props) => {
         <Nav className="ms-5">
           <Nav.Item>
             <Nav.Link className="me-5 ms-2">
-            <Link style={{textDecoration : 'none', color : 'white'}} to='/Home'>Home</Link> 
+            <NavLink style={{textDecoration : 'none', color : 'white'}} to='/'>Home</NavLink> 
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
          <Nav.Link className="me-5 ms-2" >
-         <Link style={{textDecoration : 'none', color : 'white'}} to='/Store'> Store</Link> 
+         <NavLink style={{textDecoration : 'none', color : 'white'}} to='/Store'> Store</NavLink> 
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link className="me-5 ms-2">
-            <Link style={{textDecoration : 'none', color : 'white'}} to='/About'>About</Link> 
+            <NavLink style={{textDecoration : 'none', color : 'white'}} to='/About'>About</NavLink> 
             </Nav.Link>
           </Nav.Item>
         </Nav>
