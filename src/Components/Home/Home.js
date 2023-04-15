@@ -1,56 +1,45 @@
 import { Button, Table } from "react-bootstrap";
+import UiCard from "../UI/Card";
+import MovieTable from "./MovieTable";
+import { useState } from "react";
 
 const Home = () => {
-  const homeData = [
-    {
-      date: "JUL16",
-      one: "DETROIT, MI",
-      two: "DTE ENERGY MUSIC THEATRE",
-    },
-    {
-      date: "JUL16",
-      one: "DETROIT, MI",
-      two: "DTE ENERGY MUSIC THEATRE",
-    },
-    {
-      date: "JUL16",
-      one: "DETROIT, MI",
-      two: "DTE ENERGY MUSIC THEATRE",
-    },
-    {
-      date: "JUL16",
-      one: "DETROIT, MI",
-      two: "DTE ENERGY MUSIC THEATRE",
-    },
-    {
-      date: "JUL16",
-      one: "DETROIT, MI",
-      two: "DTE ENERGY MUSIC THEATRE",
-    },
-    {
-      date: "JUL16",
-      one: "DETROIT, MI",
-      two: "DTE ENERGY MUSIC THEATRE",
-    },
-  ];
+  const [movies,setMovies] = useState([])
+  const [isLoading , setLoading] =useState(false)
+  async function fetchHandler() {
+    setLoading(true)
+    const response = await fetch("https://swapi.dev/api/films");
+    const data = await response.json();
+    const result = data.results.map((movieData) => {
+      return {
+        id: movieData.episode_id,
+        title: movieData.title,
+        director: movieData.director,
+        releasedate: movieData.release_date,
+      }
+    });
+    setMovies(result)
+    setLoading(false)
+  }
+
+
 
   return (
-    <>
-      <Table  className="table-sm m-5">
-        <tbody>
-          {homeData.map((date) => (
-            <tr className="m-2">
-              <td>{date.date}</td>
-              <td>{date.one}</td>
-              <td>{date.two}</td>
-              <td>
-                <Button variant="info">Buy Tickets</Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+    <div style={{ textAlign: "center" }}>
+      <Button onClick={fetchHandler}>Fetech Movies</Button>
+      {!isLoading && <Table className="table-sm m-5">
+        <thead>
+          <tr>
+            <th>Realease Date</th>
+            <th>Director</th>
+            <th>Movie Name</th>
+          </tr>
+        </thead>
+       <MovieTable movies={movies}/>
       </Table>
-    </>
+      }
+      {isLoading && <p>Loading....</p>}
+    </div>
   );
 };
 
