@@ -1,17 +1,16 @@
 import { Button, Table } from "react-bootstrap";
 // import UiCard from "../UI/Card";
 import MovieTable from "./MovieTable";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Home = () => {
-  var intervelId;
   const [movies, setMovies] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  useEffect(() => {
-    fetchHandler();
-  }, []);
-  async function fetchHandler() {
+
+  const fetchHandler = useCallback(async () => {
+    
+    var intervelId;
     setLoading(true);
     setError(null);
     try {
@@ -32,6 +31,7 @@ const Home = () => {
         };
       });
       setMovies(result);
+      setLoading(false)
     } catch (error) {
       setError(error.message);
       intervelId = setInterval(() => {
@@ -39,7 +39,11 @@ const Home = () => {
       }, 5000);
       setLoading(false);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    fetchHandler();
+  }, [fetchHandler]);
 
   const cancleFetchHandler = () => {
     setError();
@@ -49,7 +53,6 @@ const Home = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <Button onClick={fetchHandler}>Fetech Movies</Button>
-      {isLoading && (
         <Table className="table-sm m-5">
           <thead>
             <tr>
@@ -60,8 +63,9 @@ const Home = () => {
           </thead>
           <MovieTable movies={movies} />
         </Table>
-      )}
+      {/* )} */}
       {isLoading && !error && <p>Loading....</p>}
+      <br></br>
       {error && (
         <p>
           {error} <Button onClick={cancleFetchHandler}>Cancel</Button>
