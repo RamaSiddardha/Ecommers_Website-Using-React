@@ -3,18 +3,21 @@ import { Button, Card, FloatingLabel, Form } from "react-bootstrap";
 // import UiCard from "../UI/Card";
 
 const AddMovies = (props) => {
-  const movieName = useRef()
-  const directorName = useRef()
-  const releaseDate = useRef()
+  const movieName = useRef('')
+  const directorName = useRef('')
+  const releaseDate = useRef('')
+
 
   const formSubmitHandler = (e) => {
-    e.preventDefault()
-    console.log({
+    const movie = {
       movieName: movieName.current.value,
       directorName: directorName.current.value,
       releaseDate: releaseDate.current.value,
-    });
-    props.addMovieCard()
+    }
+    
+    e.preventDefault()
+    // console.log(movie);
+    props.addMovieCard(movie)
   };
 
   return (
