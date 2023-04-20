@@ -10,38 +10,56 @@ const Home = () => {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const addMovieHadler = () => {
+ async function addMovieHadler (addedMovie){
     setAddMovies(!addMovies);
-  };
+const reponse = await fetch("https://react-ecommers-website-2023-default-rtdb.firebaseio.com/movies.json",{
+  method : 'POST',
+  body : JSON.stringify(addedMovie),
+  headers :{'content-type' : "Adding movies with movie details"
+}})
+};
 
   const fetchHandler = useCallback(async () => {
-    var intervelId;
+    // var intervelId;
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://swapi.dev/api/films");
+      const response = await fetch("https://react-ecommers-website-2023-default-rtdb.firebaseio.com/movies.json");
       if (!response.ok) {
         throw new Error("SomeThing Went Wrong.....Retrying.");
       }
-      if (response.ok) {
-        clearInterval(intervelId);
-      }
+      // if (response.ok) {
+      //   clearInterval(intervelId);
+      // }
+      
       const data = await response.json();
-      const result = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          director: movieData.director,
-          releasedate: movieData.release_date,
-        };
-      });
-      setMovies(result);
+      
+      const fetchedMovies = []
+
+      for(const key in data){
+        fetchedMovies.push({
+          id: key,
+          title: data[key].movieName,
+          director: data[key].directorName,
+          releasedate: data[key].releaseDate,
+        })
+      }
+
+      // const result = data.fetchedMovies.map((movieData) => {
+      //   return {
+      //     id: movieData.episode_id,
+      //     title: movieData.title,
+      //     director: movieData.director,
+      //     releasedate: movieData.release_date,
+      //   };
+      // });
+      setMovies(fetchedMovies);
       setLoading(false);
     } catch (error) {
       setError(error.message);
-      intervelId = setInterval(() => {
-        fetchHandler();
-      }, 5000);
+      // intervelId = setInterval(() => {
+      //   fetchHandler();
+      // }, 5000);
       setLoading(false);
     }
   }, []);
@@ -59,7 +77,7 @@ const Home = () => {
     <div style={{ textAlign: "center" }}>
       <div style={{margin : '5rem'}}>
         {!addMovies && (
-          <Button onClick={addMovieHadler} variant="warning">
+          <Button onClick={()=>{ setAddMovies(!addMovies);}} variant="warning">
             ADD NEW MOVIE
           </Button>
         )}

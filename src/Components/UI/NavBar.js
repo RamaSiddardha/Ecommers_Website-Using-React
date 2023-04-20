@@ -15,19 +15,19 @@ const NavBar = (props) => {
         <Navbar.Brand />
         <Nav className="ms-5">
           <Nav.Item>
-            <Nav.Link className="me-5 ms-2">
-            <NavLink style={{textDecoration : 'none', color : 'white'}} to='/'>Home</NavLink> 
-            </Nav.Link>
+            {/* <Nav.Link className="me-5 ms-2"> */}
+            <NavLink style={{textDecoration : 'none', color : 'white', margin: "5rem 2rem",fontSize : '2.2rem'}} to='/'>Home</NavLink> 
+            {/* </Nav.Link> */}
           </Nav.Item>
           <Nav.Item>
-         <Nav.Link className="me-5 ms-2" >
-         <NavLink style={{textDecoration : 'none', color : 'white'}} to='/Store'> Store</NavLink> 
-            </Nav.Link>
+         {/* <Nav.Link className="me-5 ms-2" > */}
+         <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.2rem'}} to='/Store'> Store</NavLink> 
+            {/* </Nav.Link> */}
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link className="me-5 ms-2">
-            <NavLink style={{textDecoration : 'none', color : 'white'}} to='/About'>About</NavLink> 
-            </Nav.Link>
+            {/* <Nav.Link className="me-5 ms-2"> */}
+            <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.2rem'}} to='/About'>About</NavLink> 
+            {/* </Nav.Link> */}
           </Nav.Item>
         </Nav>
         <Nav>
