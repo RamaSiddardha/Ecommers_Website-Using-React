@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Button, Card, FloatingLabel, Form } from "react-bootstrap";
+import HomeContext from "../../Contexts/HomeContext";
 // import UiCard from "../UI/Card";
 
 const AddMovies = (props) => {
@@ -7,6 +8,7 @@ const AddMovies = (props) => {
   const directorName = useRef('')
   const releaseDate = useRef('')
 
+  const homeCtx = useContext(HomeContext)
 
   const formSubmitHandler = (e) => {
     const movie = {
@@ -16,8 +18,9 @@ const AddMovies = (props) => {
     }
     
     e.preventDefault()
-    // console.log(movie);
-    props.addMovieCard(movie)
+    homeCtx.addMovie(movie)
+    props.closeAddCard()
+    props.fetchMovies()
   };
 
   return (
@@ -62,6 +65,9 @@ const AddMovies = (props) => {
           </FloatingLabel>
           <Button type="submit" variant="warning">
             ADD MOVIE
+          </Button>
+          <Button className="m-2" variant="danger" onClick={()=>props.closeAddCard()}>
+            CLOSE
           </Button>
         </Form>
       </Card.Body>

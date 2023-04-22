@@ -16,17 +16,17 @@ const NavBar = (props) => {
         <Nav className="ms-5">
           <Nav.Item>
             {/* <Nav.Link className="me-5 ms-2"> */}
-            <NavLink style={{textDecoration : 'none', color : 'white', margin: "5rem 2rem",fontSize : '2.2rem'}} to='/'>Home</NavLink> 
+            <NavLink style={{textDecoration : 'none', color : 'white', margin: "5rem 2rem",fontSize : '2.1rem'}} to='/'>Home</NavLink> 
             {/* </Nav.Link> */}
           </Nav.Item>
           <Nav.Item>
          {/* <Nav.Link className="me-5 ms-2" > */}
-         <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.2rem'}} to='/Store'> Store</NavLink> 
+         <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.1rem'}} to='/Store'> Store</NavLink> 
             {/* </Nav.Link> */}
           </Nav.Item>
           <Nav.Item>
             {/* <Nav.Link className="me-5 ms-2"> */}
-            <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.2rem'}} to='/About'>About</NavLink> 
+            <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.1rem'}} to='/About'>About</NavLink> 
             {/* </Nav.Link> */}
           </Nav.Item>
         </Nav>
