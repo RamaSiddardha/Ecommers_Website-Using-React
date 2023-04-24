@@ -1,37 +1,40 @@
-import {Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import CartButton from "../Cart/CartButton/CartButton";
 import { NavLink } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 const NavBar = (props) => {
   return (
     <Navbar
-    fixed="top"
+      fixed="top"
       bg="dark"
       expand="lg"
       variant="dark"
-      style={{ fontFamily: "didot", fontSize: "1.5rem", fontColor: "white"}}
+      style={{ fontFamily: "didot", fontSize: "1.5rem", fontColor: "white" }}
     >
       <Container>
         <Navbar.Brand />
         <Nav className="ms-5">
-          <Nav.Item>
-            {/* <Nav.Link className="me-5 ms-2"> */}
-            <NavLink style={{textDecoration : 'none', color : 'white', margin: "5rem 2rem",fontSize : '2.1rem'}} to='/'>Home</NavLink> 
-            {/* </Nav.Link> */}
-          </Nav.Item>
-          <Nav.Item>
-         {/* <Nav.Link className="me-5 ms-2" > */}
-         <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.1rem'}} to='/Store'> Store</NavLink> 
-            {/* </Nav.Link> */}
-          </Nav.Item>
-          <Nav.Item>
-            {/* <Nav.Link className="me-5 ms-2"> */}
-            <NavLink style={{textDecoration : 'none', color : 'white' , margin: "5rem 2rem",fontSize : '2.1rem'}} to='/About'>About</NavLink> 
-            {/* </Nav.Link> */}
-          </Nav.Item>
+          <LinkContainer to="/">
+            <Nav.Link className="me-5 ms-2">Home</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer to="/Store">
+            <Nav.Link className="me-5 ms-2">Store</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer to="/About">
+            <Nav.Link className="me-5 ms-2">About</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer to="/ContactUs">
+            <Nav.Link className="me-5 ms-2" to>
+              Contact Us
+            </Nav.Link>
+          </LinkContainer>
         </Nav>
         <Nav>
-          <CartButton onClick={props.cartButtonClick}/>
+          <CartButton onClick={props.cartButtonClick} />
         </Nav>
       </Container>
     </Navbar>

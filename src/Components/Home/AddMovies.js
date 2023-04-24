@@ -10,6 +10,7 @@ const AddMovies = (props) => {
 
   const homeCtx = useContext(HomeContext)
 
+
   const formSubmitHandler = (e) => {
     const movie = {
       movieName: movieName.current.value,
