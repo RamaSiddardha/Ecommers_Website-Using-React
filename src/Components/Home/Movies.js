@@ -16,7 +16,7 @@ const Movies = (props) => {
           </tr>
         </thead>
         {props.movies.map((data) => (
-        <MovieTableBody fetchMovies={props.fetchMovies} movies={data} />
+        <MovieTableBody key={data.id} fetchMovies={props.fetchMovies} movies={data} />
       ))}
       </Table>
       

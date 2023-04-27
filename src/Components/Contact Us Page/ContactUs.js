@@ -1,10 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Button, Card, FloatingLabel, Form } from "react-bootstrap";
 
 const ContactUs = (props) => {
-
-    const [intialValue,setIntialValue]=useState(false)
-
   const name = useRef("");
   const email = useRef("");
   const phoneNumber = useRef("");
@@ -26,8 +23,11 @@ const ContactUs = (props) => {
           userDetails: "complained Users",
         },
       }
-    ).then(()=>{alert("Your Complaint got registered.You will recive a call Back in 24hours")
-setIntialValue(!intialValue)})
+    ).then(() => {
+      alert(
+        "Your Complaint got registered.You will recive a call Back in 24hours"
+      );
+    });
   };
 
   return (
@@ -68,10 +68,7 @@ setIntialValue(!intialValue)})
           <Button type="submit" variant="warning">
             Submit
           </Button>
-          <Button
-            className="m-2"
-            variant="danger"
-          >
+          <Button className="m-2" variant="danger">
             CLOSE
           </Button>
         </Form>

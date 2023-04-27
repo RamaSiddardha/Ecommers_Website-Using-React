@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import CartButton from "../Cart/CartButton/CartButton";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
 const NavBar = (props) => {
