@@ -46,6 +46,8 @@ const RegistrationForm = () => {
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
+
+  
   const submitHandler = (e) => {
     e.preventDefault();
     const enteredEmail = emailInputRef.current.value;
