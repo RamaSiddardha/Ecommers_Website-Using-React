@@ -1,9 +1,15 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
+import Button from 'react-bootstrap/Button'
 import CartButton from "../Cart/CartButton/CartButton";
 // import { NavLink } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import { useContext } from "react";
+import AuthContext from "../../Contexts/AuthContext";
 
 const NavBar = (props) => {
+
+  const authCtx = useContext(AuthContext)
+
   return (
     <Navbar
       fixed="top"
@@ -35,6 +41,11 @@ const NavBar = (props) => {
         </Nav>
         <Nav>
           <CartButton onClick={props.cartButtonClick} />
+          <LinkContainer to="/Login">
+            <Nav.Link className="ms-5">
+             {authCtx.token ? <Button onClick={authCtx.logout}>Logout</Button>  : 'Login'}
+            </Nav.Link>
+          </LinkContainer>
         </Nav>
       </Container>
     </Navbar>

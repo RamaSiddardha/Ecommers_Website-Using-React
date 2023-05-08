@@ -7,6 +7,7 @@ import About from "./Components/About/About";
 import HomePage from "./Components/Home/HomePage";
 import ContactUs from "./Components/Contact Us Page/ContactUs";
 import ProductDetails from "./Components/Store/ProductDetails";
+import RegistrationForm from "./Components/RegistrationPage/RegistrationForm";
 // import { LoderData as fetchproduct } from "./Components/Store/ProductDetails";
 
 // ,loader :fetchproduct
@@ -15,11 +16,12 @@ import ProductDetails from "./Components/Store/ProductDetails";
 const Router = createBrowserRouter([
   {
     path : '/', element: <RootLayout/> , children : [
+      {index : true,element : <HomePage/>},
       {path :'/Store' , element : <Products/> },
       {path : '/About' , element : <About/>},
-      {path : '/',element : <HomePage/>},
       {path : '/ContactUs', element : <ContactUs/>},
-      {path : '/Store/:productId', element : <ProductDetails/>}
+      {path : '/Store/:productId', element : <ProductDetails/>},
+      {path : '/Login', element : <RegistrationForm/>}
     ]
   }
 ])
