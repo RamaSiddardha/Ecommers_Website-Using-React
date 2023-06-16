@@ -10,11 +10,15 @@ const ProductDetails=()=>{
     const params = useParams()
     const addToCart = () => {
         cartCtx.addItem({
-            id: props.id,
+            id: params.productId,
             name: props.name,
-            link: props.link,
+            link: props.imageUrl,
             price: props.price,
         });
+
+
+        console.log(props)
+       
     }
     
     const fetctingProduct = useCallback( async ()=>{

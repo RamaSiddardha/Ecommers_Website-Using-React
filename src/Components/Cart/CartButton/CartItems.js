@@ -7,7 +7,7 @@ const CartItems = (props) => {
   return (
     <>
       {cartCtx.items.map((item) => (
-        <tbody>
+        <tbody key={item.id}>
           <tr>
             <td>
               <img src={item.link} alt="Item" height="100px" />
@@ -15,7 +15,7 @@ const CartItems = (props) => {
             </td>
             <td>{item.price}</td>
             <td>
-              <input
+              <input 
                 type="number"
                 defaultValue='1'
                 style={{ width: "4rem" }}

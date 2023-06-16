@@ -96,7 +96,7 @@ const RegistrationForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken,enteredEmail);
         histroy("/Store", { replace: true });
       })
       .catch((err) => {

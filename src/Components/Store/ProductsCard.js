@@ -14,6 +14,9 @@ const ProductsCard = (props) => {
       link: props.link,
       price: props.price,
     });
+
+    // console.log(props)
+    
   };
   return (
     <>
